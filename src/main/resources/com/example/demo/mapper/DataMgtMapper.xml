@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.DataMgtMapper">
+
+<insert id="insertDataMgt" parameterType="map">
+INSERT INTO tb_file
+(
+	FILE_NM_ORIG
+	, FILE_NM
+	, FILE_PATH
+	, FRST_DT
+	, FRST_USER
+)VALUES(
+	#{file_nm_orig}
+	, #{file_nm}
+	, #{file_path}
+	, NOW()
+	, 'ADMIN'
+)
+</insert>
+
+<select id="selectFileInfo" parameterType="map" resultType="map">
+SELECT FILE_SQ, FILE_NM_ORIG, FRST_DT FROM tb_file ORDER BY FILE_SQ
+</select>
+
+</mapper>

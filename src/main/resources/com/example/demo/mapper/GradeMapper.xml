@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.GradeMapper">
+
+<select id="selectGradeYear" resultType="map">
+SELECT 
+	[YEAR], [GRADE], [PERCENT]
+FROM
+	GRADE_YEAR
+</select>
+
+<select id="selectGradeDay" resultType="map">
+SELECT 
+	[DAY], [A], [B], [C], [D]
+FROM
+	GRADE_DAY
+</select>
+
+<select id="selectTeamLine" resultType="map">
+SELECT [TEAM]
+      ,[TEAM_UNIQ]
+      ,[LINE]
+      ,[M_SCORE]
+      ,[TEAM_RANK]
+      ,[TOTAL_RANK]
+  FROM [team_line]
+</select>
+
+<select id="selectResultList" resultType="map">
+SELECT [TEAM]
+      ,[TEAM_UNIQ]
+      ,[LINE]
+      ,[GRADE_SCORE]
+      ,[INNER_TEAM_RANK]
+      ,[PRODUCTIVE_RANK]
+      ,[INPUT]
+      ,[OUTPUT]
+      ,[EFFICIENT]
+      ,[EFFICIENT_RANK]
+      ,[TOTAL_SCORE]
+      ,[TOTAL_RANK]
+  FROM [result]
+
+</select>
+
+</mapper>

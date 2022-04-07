@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.LoginMapper">
+
+<select id="checkUserExists" parameterType="map" resultType="String">
+SELECT USER_ID FROM tb_user WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw} LIMIT 1
+</select>
+
+<select id="selectUserLastLogin" parameterType="map" resultType="String">
+SELECT LAST_DT FROM tb_user_cnct WHERE USER_CNCT_ID = #{user_id} order by last_dt DESC limit 1
+</select>
+
+<select id="selectUserInfo" parameterType="map" resultType="map">
+SELECT USER_SQ, USER_NM, USER_ID, USER_EMAIL FROM tb_user WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw} LIMIT 1
+</select>
+
+<insert id="insertUserConnectHistory" parameterType="map">
+INSERT INTO tb_user_cnct 
+(
+	USER_CNCT_ID
+	, USER_IP
+	, LAST_DT
+)VALUES(
+	#{user_id}
+	, #{user_ip}
+	, NOW()
+)
+</insert>
+
+</mapper>

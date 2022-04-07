@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.SalesMapper">
+
+<select id="selectInstaAll" resultType="map">
+SELECT 
+	ORDER_ID
+	, ORDER_NUMBER
+	, USER_ID
+	, ADD_TO_CART_ORDER
+	, REORDERED
+	, VISIT_DATE
+	, PRODUCT_ID
+	, PRODUCT_NAME
+	, AISLE_ID
+	, AISLE
+	, DEPARTMENT_ID
+	, DEPARTMENT
+	, PRICE_DOLLAR
+	, PRICE_WON
+FROM 
+	TB_S0_000_all
+LIMIT 1000
+</select>
+
+<select id="selectListDept" resultType="map">
+SELECT
+	DEPARTMENT_ID, DEPARTMENT
+FROM
+	TB_S0_000_dept
+</select>
+
+<select id="selectListAisle" resultType="map">
+SELECT
+	AISLE_ID, AISLE, DEPARTMENT_ID, DEPARTMENT
+FROM
+	TB_S0_000_aisle
+</select>
+
+<select id="selectListProduct" resultType="map">
+SELECT
+	PRODUCT_ID, PRODUCT_NAME, AISLE_ID, AISLE
+FROM
+	TB_S0_000_product
+</select>
+
+<select id="selectListUser" resultType="map">
+SELECT
+	USER_ID
+FROM
+	TB_S0_000_user
+</select>
+
+</mapper>

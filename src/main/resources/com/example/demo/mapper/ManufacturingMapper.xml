@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ManufacturingMapper">
+
+<select id="selectEfficient" resultType="map">
+SELECT 
+	TEAM_LINE
+	, `RANK`
+	, 주변_습도 AS aa
+	, 주변_온도 as bb
+	, 원료_공급_변수 as cc
+	, 구역1_온도 as dd
+	, 구역2_온도 as ee
+	, 모터의_전류 as ff
+	, 원자재_속성 as gg
+	, 모터의_전류_백분율 as hh
+	, GRADE
+FROM 
+	TB_M0_301
+</select>
+
+<select id="selectProductive" resultType="map">
+SELECT 
+	TEAM_LINE
+	, `RANK`
+	, 주변_습도 AS aa
+	, 주변_온도 as bb
+	, 원료_공급_변수 as cc
+	, 구역1_온도 as dd
+	, 구역2_온도 as ee
+	, 모터의_전류 as ff
+	, 원자재_속성 as gg
+	, 모터의_전류_백분율 as hh
+	, GRADE
+FROM 
+	TB_M0_302
+</select>
+
+<select id="selectCapabilityOfProcess" resultType="map">
+SELECT 
+	TEAM as aa
+	, Cp as bb
+	, 등급 as cc
+	, Cpk as dd
+	, `불량률(PPM)` as ee
+FROM 
+	TB_M0_303
+</select>
+
+<select id="selectCapabilityOfProcess2" resultType="map">
+SELECT 공정능력 as aa, `추정불량수(PPM)` as bb
+FROM TB_M0_303_cpk_조건표
+</select>
+
+<select id="selectCapabilityOfProcess3" resultType="map">
+SELECT 구분 as aa, 판단 as bb, `예상 양품률(%)` as cc, `예상 불량률` as dd
+FROM TB_M0_303_판단기준_T1_csv
+</select>
+
+<select id="selectCapabilityOfProcess4" resultType="map">
+SELECT 구분 as aa, 급수 as bb, 판단 as cc, 대처 as dd
+FROM TB_M0_303_판단기준_국내_T2_csv
+
+</select>
+
+<select id="selectListM0304" resultType="map">
+SELECT FEATURE, TEAM, LOW_1, LOW_5, LOW_10, UP_90, UP_95, UP_99
+FROM TB_M0_304
+WHERE 1=1
+<if test="team != '' and team != null"> 
+AND TEAM = #{team}
+</if>
+</select>
+
+</mapper>

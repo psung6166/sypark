@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*
+* 최초작성자 : 박성윤
+* 최초작성일 : 2022-03-22
+* 내용 : 신규생성된 css 추가하기위해만듬 
+*/
+
+
+.table-color-gw{
+	background-color: green !important;
+	color: white !important;
+	
+}
+.table-color-rw{
+	color: red !important;
+	/* color: white !important; */
+}
+.table-color-bw{
+	color: blue !important;
+	/* color: white !important; */
+}
+
+.divTeam1{
+	background-color:#c9c9c9;
+}
